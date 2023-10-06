@@ -94,6 +94,7 @@ const onUploadComplete = async ({
     await PineconeStore.fromDocuments(pageLevelDocs, embeddings, {
       pineconeIndex,
       namespace: createdFile.id,
+      onFailedAttempt: (err) => console.log(err),
     })
 
     await db.file.update({

@@ -5,7 +5,7 @@ export const getPineconeClient = async () => {
 
   await client.init({
     apiKey: process.env.PINECONE_API_KEY!,
-    environment: "gcp-starter",
+    environment: "us-west4-gcp-free",
   })
 
   return client
