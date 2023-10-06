@@ -20,6 +20,18 @@ interface BillingFormProps {
 }
 
 const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
+  const { zonedTimeToUtc, utcToZonedTime, format } = require("date-fns-tz")
+
+  // Obtain a Date instance that will render the equivalent Berlin time for the UTC date
+  const date = new Date(subscriptionPlan.stripeCurrentPeriodEnd!)
+  const timeZone = "Europe/Berlin"
+  const zonedDate = utcToZonedTime(date, timeZone)
+  // zonedDate could be used to initialize a date picker or display the formatted local date/time
+
+  // Set the output to "1.9.2018 18:01:36.386 GMT+02:00 (CEST)"
+  const pattern = "dd MMM yyyy HH:mm 'GMT' XXX (z)"
+  const output = format(zonedDate, pattern, { timeZone: "Europe/Berlin" })
+
   const { toast } = useToast()
 
   const { mutate: createStripeSession, isLoading } =
@@ -48,6 +60,7 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
         <Card>
           <CardHeader>
             <CardTitle>Subscription Plan</CardTitle>
+
             <CardDescription>
               You are currently on the <strong>{subscriptionPlan.name}</strong>{" "}
               plan.
@@ -67,10 +80,9 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
             {subscriptionPlan.isSubscribed ? (
               <p className="rounded-full text-xs font-medium">
                 {subscriptionPlan.isCanceled
-                  ? "Your plan will be canceled on "
-                  : "Your plan renews on"}
-                {format(subscriptionPlan.stripeCurrentPeriodEnd!, "dd.MM.yyyy")}
-                .
+                  ? "Your plan will be canceled on: "
+                  : "Your plan renews on: "}
+                <span className="text-primary">{output}</span>
               </p>
             ) : null}
           </CardFooter>

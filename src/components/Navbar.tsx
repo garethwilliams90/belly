@@ -9,22 +9,25 @@ import {
 import { ArrowRight } from "lucide-react"
 import UserAccountNav from "./UserAccountNav"
 import MobileNav from "./MobileNav"
+import ModeToggle from "./ModeToggle"
+import KeyDialog from "./KeyDialog"
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession()
   const user = getUser()
 
   return (
-    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
+    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b  backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
-        <div className="flex h-14 items-center justify-between border-b border-zinc-200">
+        <div className="flex h-14 items-center justify-between border-b ">
           <Link href="/" className="flex z-40 font-semibold">
-            <span>Sumrise</span>
+            <span className="sm:text-lg">Sumrise</span>
           </Link>
 
           <MobileNav isAuth={!!user} />
 
           <div className="hidden items-center space-x-4 sm:flex">
+            <ModeToggle />
             {!user ? (
               <>
                 <Link
@@ -61,6 +64,7 @@ const Navbar = () => {
                 />
               </>
             )}
+            <KeyDialog />
           </div>
         </div>
       </MaxWidthWrapper>

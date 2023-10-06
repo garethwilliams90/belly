@@ -38,14 +38,14 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
 
         <div
           className={cn("flex flex-col space-y-2 text-base max-w-md mx-2", {
-            "order-1 items-end": message.isUserMessage,
-            "order-2 items-start": !message.isUserMessage,
+            "order-1 items-end ": message.isUserMessage,
+            "order-2 items-start ": !message.isUserMessage,
           })}
         >
           <div
-            className={cn("px-4 py-2 rounded-lg inline-block", {
-              "bg-blue-600 text-white": message.isUserMessage,
-              "bg-gray-200 text-gray-900": !message.isUserMessage,
+            className={cn("px-4 py-2 rounded-lg inline-block shadow-md", {
+              "bg-primary text-white": message.isUserMessage,
+              "bg-accent border text-green-400": !message.isUserMessage,
               "rounded-br-none":
                 !isNextMessageSamePerson && message.isUserMessage,
               "rounded-bl-none":
@@ -66,7 +66,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
             {message.id !== "loading-message" ? (
               <div
                 className={cn("text-xs select-none mt-2 w-full text-right", {
-                  "text-zinc-500": !message.isUserMessage,
+                  "text-green-400": !message.isUserMessage,
                   "text-blue-300": message.isUserMessage,
                 })}
               >

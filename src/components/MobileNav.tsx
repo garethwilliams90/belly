@@ -4,6 +4,7 @@ import { ArrowRight, Menu } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
+import ModeToggle from "./ModeToggle"
 
 const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const [isOpen, setOpen] = useState<boolean>(false)
@@ -26,12 +27,16 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
     <div className="sm:hidden">
       <Menu
         onClick={toggleOpen}
-        className="relative z-50 h-5 w-5 text-zinc-700"
+        className="relative z-50 h-5 w-5 text-primary-700  "
       />
 
       {isOpen ? (
-        <div className="fixed animate-in slide-in-from-top-5 fade-in-20 inset-0 z-0 w-full">
-          <ul className="absolute bg-white border-b border-zinc-200 shadow-xl grid w-full gap-3 px-10 pt-20 pb-8">
+        <div className="fixed animate-in slide-in-from-top-5 fade-in-20 inset-0 z-0 w-full ">
+          <ul className="absolute border-b  grid w-full gap-3 px-10 pt-20 pb-8 bg-background/90 ">
+            <li>
+              <ModeToggle />
+            </li>
+            <li className="my-3 h-px w-full bg-gray-300" />
             {!isAuth ? (
               <>
                 <li>
