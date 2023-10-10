@@ -85,10 +85,18 @@ const Messages = ({ fileId }: MessagesProps) => {
         })
       ) : isLoading ? (
         <div className="w-full flex flex-col gap-2">
-          <Skeleton className="h-16" />
-          <Skeleton className="h-16" />
-          <Skeleton className="h-16" />
-          <Skeleton className="h-16" />
+          <Skeleton
+            height={50}
+            className="my-2 border-2 rounded-xl"
+            count={1}
+            baseColor="muted"
+          />
+          <Skeleton
+            height={50}
+            className="my-2 bordfer-2 rounded-xl"
+            count={1}
+            baseColor="muted"
+          />
         </div>
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center gap-2">
