@@ -1,16 +1,15 @@
-import Link from "next/link"
-import MaxWidthWrapper from "./MaxWidthWrapper"
-import { buttonVariants } from "./ui/button"
 import {
   LoginLink,
   RegisterLink,
   getKindeServerSession,
 } from "@kinde-oss/kinde-auth-nextjs/server"
 import { ArrowRight } from "lucide-react"
-import UserAccountNav from "./UserAccountNav"
+import Link from "next/link"
+import MaxWidthWrapper from "./MaxWidthWrapper"
 import MobileNav from "./MobileNav"
 import ModeToggle from "./ModeToggle"
-import KeyDialog from "./KeyDialog"
+import UserAccountNav from "./UserAccountNav"
+import { buttonVariants } from "./ui/button"
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession()
@@ -21,7 +20,7 @@ const Navbar = () => {
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b ">
           <Link href="/" className="flex z-40 font-semibold">
-            <span className="sm:text-lg">Sumrise</span>
+            <span className="sm:text-lg">belly</span>
           </Link>
 
           <MobileNav isAuth={!!user} />
@@ -30,12 +29,12 @@ const Navbar = () => {
             <ModeToggle />
             {!user ? (
               <>
-                <Link
+                {/* <Link
                   href="/pricing"
                   className={buttonVariants({ variant: "outline", size: "sm" })}
                 >
                   Pricing
-                </Link>
+                </Link> */}
                 <LoginLink
                   className={buttonVariants({ variant: "outline", size: "sm" })}
                 >
@@ -48,10 +47,10 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  href="/dashboard"
+                  href="/exercises"
                   className={buttonVariants({ variant: "outline", size: "sm" })}
                 >
-                  Dashboard
+                  Start Breathing
                 </Link>
                 <UserAccountNav
                   name={
@@ -64,7 +63,7 @@ const Navbar = () => {
                 />
               </>
             )}
-            <KeyDialog />
+            {/* <KeyDialog /> */}
           </div>
         </div>
       </MaxWidthWrapper>

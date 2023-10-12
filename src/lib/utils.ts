@@ -13,8 +13,8 @@ export function absoluteUrl(path: string) {
 }
 
 export function constructMetadata({
-  title = "Sumrise - Get instant expert summaries",
-  description = "Sumrise is an ethical company built around providing information that is easy to access.",
+  title = "belly - slow down",
+  description = "belly is a breathing app designed to help you relieve stress and calm down one breath at a time.",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false,

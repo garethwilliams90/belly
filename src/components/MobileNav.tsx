@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Menu } from "lucide-react"
+import { ArrowRight, Languages, Menu } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -36,6 +36,9 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
             <li>
               <ModeToggle />
             </li>
+            <li>
+              <Languages />
+            </li>
             <li className="my-3 h-px w-full bg-gray-300" />
             {!isAuth ? (
               <>
@@ -60,7 +63,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                   </Link>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />
-                <li>
+                {/* <li>
                   <Link
                     onClick={() => closeOnCurrent("/pricing")}
                     className="flex items-center w-full font-semibold"
@@ -68,17 +71,17 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                   >
                     Pricing
                   </Link>
-                </li>
+                </li> */}
               </>
             ) : (
               <>
                 <li>
                   <Link
-                    onClick={() => closeOnCurrent("/dashboard")}
+                    onClick={() => closeOnCurrent("/exercises")}
                     className="flex items-center w-full font-semibold"
                     href="/dashboard"
                   >
-                    Dashboard
+                    Start Breathing
                   </Link>
                 </li>
                 <li className="my-3 h-px w-full bg-gray-300" />

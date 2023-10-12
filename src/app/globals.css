@@ -76,3 +76,7 @@
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
   border-radius: 7px;
 }
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
