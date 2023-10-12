@@ -15,8 +15,8 @@ export function absoluteUrl(path: string) {
 export function constructMetadata({
   title = "belly - slow down",
   description = "belly is a breathing app designed to help you relieve stress and calm down one breath at a time.",
-  image = "/thumbnail.png",
-  icons = "/favicon.ico",
+  image = "/Logo.png",
+  icons = "/Logo.png",
   noIndex = false,
 }: {
   title?: string

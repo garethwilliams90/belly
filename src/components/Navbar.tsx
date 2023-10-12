@@ -10,6 +10,9 @@ import MobileNav from "./MobileNav"
 import ModeToggle from "./ModeToggle"
 import UserAccountNav from "./UserAccountNav"
 import { buttonVariants } from "./ui/button"
+import Logo from "@/app/Logo.png"
+import Image from "next/image"
+import { motion } from "framer-motion"
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession()
@@ -19,8 +22,11 @@ const Navbar = () => {
     <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b  backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b ">
-          <Link href="/" className="flex z-40 font-semibold">
-            <span className="sm:text-lg">belly</span>
+          <Link
+            href="/"
+            className="flex z-40 font-semibold items-center justify-center"
+          >
+            <Image src={Logo} alt={"bellyLogo"} width={40} height={40} />
           </Link>
 
           <MobileNav isAuth={!!user} />
