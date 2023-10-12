@@ -5,5 +5,6 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
+  // @ts-ignore
   return <BoxBreathProvider>{children}</BoxBreathProvider>
 }
