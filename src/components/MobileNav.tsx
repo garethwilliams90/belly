@@ -15,10 +15,6 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 
   const pathname = usePathname()
 
-  useEffect(() => {
-    if (isOpen) toggleOpen()
-  }, [pathname])
-
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
       toggleOpen()
