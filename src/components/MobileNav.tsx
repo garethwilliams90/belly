@@ -5,6 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import ModeToggle from "./ModeToggle"
+import { Button, buttonVariants } from "./ui/button"
+import LanguageToggle from "./LanguageToggle"
 
 const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const [isOpen, setOpen] = useState<boolean>(false)
@@ -32,17 +34,17 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 
       {isOpen ? (
         <div className="fixed animate-in slide-in-from-top-5 fade-in-20 inset-0 z-0 w-full ">
-          <ul className="absolute border-b  grid w-full gap-3 px-10 pt-20 pb-8 bg-background/90 ">
+          <ul className="absolute border-b   w-full gap-3 px-10 pt-20 pb-8 bg-background flex">
             <li>
               <ModeToggle />
             </li>
             <li>
-              <Languages />
+              <LanguageToggle />
             </li>
-            <li className="my-3 h-px w-full bg-gray-300" />
+            {/* <li className="my-3 h-px w-full bg-gray-300" /> */}
             {!isAuth ? (
               <>
-                <li>
+                {/* <li>
                   <Link
                     onClick={() => closeOnCurrent("/sign-up")}
                     className="flex items-center w-full font-semibold text-green-600"
@@ -51,9 +53,9 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Get started
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </li>
-                <li className="my-3 h-px w-full bg-gray-300" />
-                <li>
+                </li> */}
+                {/* <li className="my-3 h-px w-full bg-gray-300" /> */}
+                {/* <li>
                   <Link
                     onClick={() => closeOnCurrent("/sign-in")}
                     className="flex items-center w-full font-semibold"
@@ -62,7 +64,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Sign in
                   </Link>
                 </li>
-                <li className="my-3 h-px w-full bg-gray-300" />
+                <li className="my-3 h-px w-full bg-gray-300" /> */}
                 {/* <li>
                   <Link
                     onClick={() => closeOnCurrent("/pricing")}

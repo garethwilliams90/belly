@@ -4,12 +4,11 @@ import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import Logo from "./Logo.png"
-import { motion } from "framer-motion"
 
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
+      <MaxWidthWrapper className="mb-12 mt-10 sm:mt-40 flex flex-col items-center justify-center text-center">
         <div className="pb-10 flex flex-col items-center justify-center gap-10 ">
           <h1 className="text-5xl font-bold ">belly</h1>
 
