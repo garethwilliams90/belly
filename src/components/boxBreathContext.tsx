@@ -39,6 +39,7 @@ export const useBoxBreath = () => {
 }
 
 // Define your BoxBreathProvider component
+// @ts-ignore
 export const BoxBreathProvider: React.FC = ({ children }) => {
   const controls = useAnimation()
 
