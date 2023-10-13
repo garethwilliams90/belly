@@ -32,9 +32,9 @@ const Navbar = () => {
             <Image src={Logo} alt={"bellyLogo"} width={40} height={40} />
           </Link>
 
-          <MobileNav isAuth={!!user} />
+          {/* <MobileNav isAuth={!!user} /> */}
 
-          <div className="hidden items-center space-x-4 sm:flex">
+          <div className=" items-center space-x-4 flex">
             <ModeToggle />
             <LanguageToggle />
             <ShareButton />
