@@ -30,7 +30,7 @@ export default function RootLayout({
     <html
       lang={params.lang}
       suppressHydrationWarning
-      className="overflow-visible"
+      className="overflow-visible bg-background"
     >
       <Providers>
         <body

@@ -39,7 +39,7 @@ const ShareButton = () => {
             quote={"Check out belly - a breathing app to help you slow down."}
             hashtag={"#nextshare"}
           >
-            <FacebookIcon size={32} round />
+            <FacebookIcon size={50} round />
           </FacebookShareButton>
           <span className="sr-only">Share on Facebook </span>
         </DropdownMenuItem>
@@ -48,7 +48,7 @@ const ShareButton = () => {
             url={"https://belly-murex.vercel.app"}
             title={"Check out belly - a breathing app to help you slow down."}
           >
-            <TelegramIcon size={32} round />
+            <TelegramIcon size={50} round />
           </TelegramShareButton>
           <span className="sr-only">Share on Telegram</span>
         </DropdownMenuItem>
@@ -57,7 +57,7 @@ const ShareButton = () => {
             url={"https://belly-murex.vercel.app"}
             title={"Check out belly - a breathing app to help you slow down."}
           >
-            <TwitterIcon size={32} round />
+            <TwitterIcon size={50} round />
           </TwitterShareButton>
           <span className="sr-only">Share on Twitter</span>
         </DropdownMenuItem>
@@ -67,13 +67,13 @@ const ShareButton = () => {
             title={"Check out belly - a breathing app to help you slow down."}
             separator=":: "
           >
-            <WhatsappIcon size={32} round />
+            <WhatsappIcon size={50} round />
           </WhatsappShareButton>
           <span className="sr-only">Share</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <LinkedinShareButton url={"https://belly-murex.vercel.app"}>
-            <LinkedinIcon size={32} round />
+            <LinkedinIcon size={50} round />
           </LinkedinShareButton>
           <span className="sr-only">Share</span>
         </DropdownMenuItem>
@@ -82,7 +82,7 @@ const ShareButton = () => {
             url={"https://belly-murex.vercel.app"}
             appId={""}
           >
-            <FacebookMessengerIcon size={32} round />
+            <FacebookMessengerIcon size={50} round />
           </FacebookMessengerShareButton>
           <span className="sr-only">Share</span>
         </DropdownMenuItem>
