@@ -1,11 +1,11 @@
-import { getDictionary } from "@/lib/dictionary"
+// import { getDictionary } from "@/lib/dictionary"
 
-export default async function LoadingText({
-  params: { lang },
-}: {
-  params: { lang: Locale }
-}) {
-  const { comps } = await getDictionary(lang)
+// export default async function LoadingText({
+//   params: { lang },
+// }: {
+//   params: { lang: Locale }
+// }) {
+//   const { comps } = await getDictionary(lang)
 
-  return <>{comps.BBContainer.text}</>
-}
+//   return <>{comps.BBContainer.text}</>
+// }

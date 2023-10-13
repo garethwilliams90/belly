@@ -27,7 +27,11 @@ export default function RootLayout({
   params: { lang: Locale }
 }) {
   return (
-    <html lang={params.lang} suppressHydrationWarning>
+    <html
+      lang={params.lang}
+      suppressHydrationWarning
+      className="overflow-hidden"
+    >
       <Providers>
         <body
           className={cn("min-h-screen font-sans antialiased", inter.className)}
