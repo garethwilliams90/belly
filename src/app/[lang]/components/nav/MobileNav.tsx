@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import ModeToggle from "./ModeToggle"
-import { Button, buttonVariants } from "./ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import LanguageToggle from "./LanguageToggle"
 
 import ShareButton from "./ShareButton"

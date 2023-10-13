@@ -47,7 +47,7 @@ const BoxBreathContainer = () => {
             >
               {loading ? (
                 <div className="flex flex-col justify-center items-center gap-4">
-                  <Star className="animate-spin w-10 h-10" />
+                  <Star className="animate-spin-slow w-10 h-10" />
                   <h1 className="font-medium text text-xs animate-bounce">
                     Preparing your exercise...
                   </h1>
