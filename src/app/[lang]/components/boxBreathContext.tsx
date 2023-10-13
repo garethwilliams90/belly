@@ -84,7 +84,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
 
       const changeMessage = async (rounds: number) => {
         // Change the message
-        setBoxMessage("Inhale")
+        setBoxMessage("In")
 
         // Wait the breathLength time
         await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))
@@ -106,7 +106,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
         }
 
         // Change the message
-        setBoxMessage("Exhale")
+        setBoxMessage("Out")
 
         // Wait the breathLength time
         await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))

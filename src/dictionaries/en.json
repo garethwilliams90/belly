@@ -2,8 +2,8 @@
   "page": {
     "home": {
       "takea": "Take a ",
-      "breath": "deep breath.",
-      "subMessage": "Inhale with your belly, let your chest relax on your exhale.",
+      "breath": "deep breath",
+      "subMessage": "into your belly, hold for a few seconds and then relax your chest on your exhale. Then repeat.",
       "buttonText": "Start Breathing"
     }
   },

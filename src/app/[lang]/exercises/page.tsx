@@ -13,7 +13,7 @@ const Exercises = () => {
       <div className="flex flex-col w-full items-center justify-center gap-24 relative">
         <div className="w-full flex flex-row items-center justify-between mt-6 px-4">
           <div className="text-muted-foreground font-semibold text-lg">
-            Rounds: {rounds}
+            Cycles: {rounds}
           </div>
         </div>
         <BoxBreathContainer />
