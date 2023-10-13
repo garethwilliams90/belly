@@ -2,7 +2,7 @@
 
 import { getUserSubscriptionPlan } from "@/lib/stripe"
 import { useToast } from "./ui/use-toast"
-import { trpc } from "@/app/_trpc/client"
+import { trpc } from "@/app/[lang]/_trpc/client"
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import {
   Card,

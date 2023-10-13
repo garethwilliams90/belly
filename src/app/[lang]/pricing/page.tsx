@@ -1,12 +1,12 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper"
-import UpgradeButton from "@/components/UpgradeButton"
-import { buttonVariants } from "@/components/ui/button"
+import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
+import UpgradeButton from "@/app/[lang]/components/UpgradeButton"
+import { buttonVariants } from "@/app/[lang]/components/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/app/[lang]/components/ui/tooltip"
 import { PLANS } from "@/config/stripe"
 import { cn } from "@/lib/utils"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"

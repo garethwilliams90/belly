@@ -1,0 +1,20 @@
+{
+  "page": {
+    "home": {
+      "takea": "קח ",
+      "breath": " נשימה עמוקה",
+      "subMessage": "שאפו עם הבטן, תנו לחזה להירגע בנשיפה.",
+      "buttonText": "התחל לנשום"
+    }
+  },
+  "comps": {
+    "ModeToggle": {
+      "Light": "בָּהִיר",
+      "Dark": "אפל",
+      "System": "מערכת"
+    },
+    "BBContainer": {
+      "text": "rega!"
+    }
+  }
+}

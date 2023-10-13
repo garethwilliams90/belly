@@ -1,10 +1,10 @@
 "use client"
 
-import BoxBreathContainer from "@/components/BoxBreathContainer"
-import MaxWidthWrapper from "@/components/MaxWidthWrapper"
-import SettingsDialog from "@/components/SettingsDialog"
-import { useBoxBreath } from "@/components/boxBreathContext"
-import { Button, buttonVariants } from "@/components/ui/button"
+import BoxBreathContainer from "@/app/[lang]/components/BoxBreathContainer"
+import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
+import SettingsDialog from "@/app/[lang]/components/SettingsDialog"
+import { useBoxBreath } from "@/app/[lang]/components/boxBreathContext"
+import { Button, buttonVariants } from "@/app/[lang]/components/ui/button"
 
 const Exercises = () => {
   const { rounds, isRunning, cancelExercise, messageRef } = useBoxBreath()

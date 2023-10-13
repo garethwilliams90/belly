@@ -1,14 +1,15 @@
 "use client"
 
 import { Languages } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/app/[lang]/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/app/[lang]/components/ui/dropdown-menu"
 import { useState } from "react"
+import LocaleSwitcher from "./LocaleSwitcher"
 
 export function LanguageToggle() {
   const [lang, setLang] = useState<string>("english")
@@ -21,13 +22,11 @@ export function LanguageToggle() {
           <span className="sr-only">Change Language</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="mx-2">
-        <DropdownMenuItem onClick={() => setLang("hebrew")}>
-          Hebrew
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLang("english")}>
-          English
-        </DropdownMenuItem>
+      <DropdownMenuContent
+        align="end"
+        className="mx-2 p-4 items-center justify-center"
+      >
+        <LocaleSwitcher />
       </DropdownMenuContent>
     </DropdownMenu>
   )

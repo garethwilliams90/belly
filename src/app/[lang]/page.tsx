@@ -1,11 +1,20 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper"
-import { buttonVariants } from "@/components/ui/button"
+import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
+import { buttonVariants } from "@/app/[lang]/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import Logo from "./Logo.png"
 
-export default function Home() {
+import { Locale } from "@/i18n.config"
+import { getDictionary } from "@/lib/dictionary"
+
+export default async function Home({
+  params: { lang },
+}: {
+  params: { lang: Locale }
+}) {
+  const { page } = await getDictionary(lang)
+
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-10 sm:mt-40 flex flex-col items-center justify-center text-center">
@@ -15,11 +24,12 @@ export default function Home() {
           <Image src={Logo} alt={"bellyLogo"} width={100} height={100} />
         </div>
         <h1 className="max-w-4xl text-7xl font-bold  px-4">
-          Take a <span className="text-blue-600">deep breath</span>
+          {page.home.takea}{" "}
+          <span className="text-blue-600">{page.home.breath}</span>
         </h1>
 
         <p className="mt-5 max-w-prose text-zinc-500 sm:text-lg px-4">
-          Inhale with your belly, let your chest relax on your exhale.
+          {page.home.subMessage}
         </p>
 
         {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}> */}
@@ -31,7 +41,8 @@ export default function Home() {
             className: "text-xl mt-8",
           })}
         >
-          Start Breathing <ArrowRight className="ml-2 h-5 w-5"></ArrowRight>
+          {page.home.buttonText}{" "}
+          <ArrowRight className="ml-2 h-5 w-5"></ArrowRight>
         </Link>
         {/* </motion.div> */}
       </MaxWidthWrapper>

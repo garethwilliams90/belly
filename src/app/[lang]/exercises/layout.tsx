@@ -1,4 +1,4 @@
-import { BoxBreathProvider } from "@/components/boxBreathContext"
+import { BoxBreathProvider } from "@/app/[lang]/components/boxBreathContext"
 
 export default async function Layout({
   children,

@@ -1,8 +1,6 @@
-"use client"
-
 import { AnimatePresence, motion } from "framer-motion"
-import { useBoxBreath } from "./boxBreathContext"
 import { Star } from "lucide-react"
+import { useBoxBreath } from "./boxBreathContext"
 
 const BoxBreathContainer = () => {
   const {

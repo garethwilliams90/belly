@@ -10,11 +10,12 @@ import MobileNav from "./MobileNav"
 import ModeToggle from "./ModeToggle"
 import UserAccountNav from "./UserAccountNav"
 import { buttonVariants } from "./ui/button"
-import Logo from "@/app/Logo.png"
+import Logo from "@/app/[lang]/Logo.png"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import LanguageToggle from "./LanguageToggle"
 import ShareButton from "./ShareButton"
+import LocaleSwitcher from "./LocaleSwitcher"
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession()

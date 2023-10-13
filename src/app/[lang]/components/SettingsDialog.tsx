@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/ui/command"
+} from "@/app/[lang]/components/ui/command"
 import { useState } from "react"
 import { buttonVariants } from "./ui/button"
 import { Slider } from "./ui/slider"

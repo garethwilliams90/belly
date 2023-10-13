@@ -1,0 +1,20 @@
+{
+  "page": {
+    "home": {
+      "takea": "Take a ",
+      "breath": "deep breath.",
+      "subMessage": "Inhale with your belly, let your chest relax on your exhale.",
+      "buttonText": "Start Breathing"
+    }
+  },
+  "comps": {
+    "ModeToggle": {
+      "Light": "Light",
+      "Dark": "Dark",
+      "System": "Sytem"
+    },
+    "BBContainer": {
+      "text": "Preparing your exercise..."
+    }
+  }
+}
