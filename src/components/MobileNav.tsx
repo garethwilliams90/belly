@@ -7,12 +7,11 @@ import { useEffect, useState } from "react"
 import ModeToggle from "./ModeToggle"
 import { Button, buttonVariants } from "./ui/button"
 import LanguageToggle from "./LanguageToggle"
-import { useBoxBreath } from "./boxBreathContext"
+
 import ShareButton from "./ShareButton"
 
 const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const [isOpen, setOpen] = useState<boolean>(false)
-  const { isRunning } = useBoxBreath()
 
   const toggleOpen = () => setOpen((prev) => !prev)
 

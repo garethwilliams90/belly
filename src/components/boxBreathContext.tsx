@@ -196,13 +196,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
     setWasCancelled(true)
   }
 
-  const completeExercise = (wasCancelled: boolean) => {
-    if (wasCancelled) {
-      console.log("You didn&apos;t finish this time")
-    } else {
-      console.log(`You completed an exercise of ${rounds} rounds! Well done`)
-    }
-  }
+  const completeExercise = (wasCancelled: boolean) => {}
 
   // Provide the cart state and functions through boxBreath.Provider
   return (
