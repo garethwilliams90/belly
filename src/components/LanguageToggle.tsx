@@ -26,7 +26,7 @@ export function LanguageToggle() {
           Hebrew
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setLang("english")}>
-          Eng
+          English
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

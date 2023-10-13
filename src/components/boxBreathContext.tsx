@@ -22,8 +22,9 @@ const BoxBreath = createContext<
       updateRounds: (e: number) => void
       runExercise: (rounds: number, boxLength: number) => void
       isRunning: boolean
+      loading: boolean
       cancelExercise: (ref: React.MutableRefObject<boolean>) => void
-      completeExercise: () => void
+      completeExercise: (wasCancelled: boolean) => void
       messageRef: React.MutableRefObject<boolean>
     }
   | undefined
@@ -44,6 +45,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
   const controls = useAnimation()
 
   const messageControls = useAnimation()
+  const [loading, setLoading] = useState<boolean>(false)
   const [boxMessage, setBoxMessage] = useState<string>("Press To Start")
   const [wasCancelled, setWasCancelled] = useState<boolean>(false)
   const [isRunning, setIsRunning] = useState<boolean>(false)
@@ -142,6 +144,10 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
   }
 
   const runExercise = async (rounds: number, boxLength: number) => {
+    // Wait the breathLength time
+    setLoading(true)
+    await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))
+    setLoading(false)
     setIsRunning(true)
     messageRef.current = false
 
@@ -149,6 +155,10 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
     await animateSquare(rounds, boxLength)
 
     setIsRunning(false)
+
+    // complete with cancelled data
+    completeExercise(wasCancelled)
+
     setWasCancelled(false)
     setBoxMessage("Press To Start")
   }
@@ -171,6 +181,8 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
       y: "0%",
     })
 
+    messageControls.start({ scale: [1] })
+
     // Reset the message controls
     messageControls.stop()
 
@@ -184,8 +196,12 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
     setWasCancelled(true)
   }
 
-  const completeExercise = () => {
-    console.log(`You completed an exercise of ${rounds} rounds! Well done`)
+  const completeExercise = (wasCancelled: boolean) => {
+    if (wasCancelled) {
+      console.log("You didn&apos;t finish this time")
+    } else {
+      console.log(`You completed an exercise of ${rounds} rounds! Well done`)
+    }
   }
 
   // Provide the cart state and functions through boxBreath.Provider
@@ -202,6 +218,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
         updateRounds,
         runExercise,
         isRunning,
+        loading,
         cancelExercise,
         completeExercise,
         messageRef,

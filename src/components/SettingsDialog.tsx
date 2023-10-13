@@ -46,7 +46,7 @@ const SettingsDialog = () => {
         Settings
       </p>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandList>
+        <CommandList className="">
           <CommandGroup heading="Settings">
             <CommandItem className="flex flex-col gap-8">
               <div className="flex items-start">

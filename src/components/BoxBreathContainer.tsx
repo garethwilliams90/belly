@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import { useBoxBreath } from "./boxBreathContext"
+import { Star } from "lucide-react"
 
 const BoxBreathContainer = () => {
   const {
@@ -14,6 +15,7 @@ const BoxBreathContainer = () => {
     controls,
     messageControls,
     isRunning,
+    loading,
     boxMessage,
   } = useBoxBreath()
 
@@ -21,9 +23,13 @@ const BoxBreathContainer = () => {
     <>
       <AnimatePresence>
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => runExercise(rounds, breathLength * 4)}
+          whileHover={!isRunning ? { scale: 1.05 } : {}}
+          whileTap={!isRunning ? { scale: 0.95 } : {}}
+          onClick={
+            !isRunning || loading
+              ? () => runExercise(rounds, breathLength * 4)
+              : () => {}
+          }
           className=" bg-blue-600 rounded-3xl w-11/12 sm:w-2/3 md:w-1/2 aspect-square flex items-center justify-center shadow-lg shadow-primary/50 relative overflow-visible"
         >
           <motion.div
@@ -42,7 +48,16 @@ const BoxBreathContainer = () => {
               animate={messageControls}
               className="font-semibold text-2xl sm:text-3xl text-black"
             >
-              {boxMessage}
+              {loading ? (
+                <div className="flex flex-col justify-center items-center gap-4">
+                  <Star className="animate-spin" />
+                  <h1 className="font-medium text-primary-foreground text-xs animate-bounce">
+                    Preparing your exercise...
+                  </h1>
+                </div>
+              ) : (
+                boxMessage
+              )}
             </motion.div>
             {/* {isRunning && (
               <div className="text-muted font-medium">for {breathLength}</div>

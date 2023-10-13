@@ -6,6 +6,7 @@ import { trpc } from "@/app/_trpc/client"
 import { httpBatchLink } from "@trpc/client"
 import { absoluteUrl } from "@/lib/utils"
 import { ThemeProvider } from "./theme-provider"
+import { BoxBreathProvider } from "./boxBreathContext"
 
 const Providers = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(() => new QueryClient())
@@ -21,7 +22,9 @@ const Providers = ({ children }: PropsWithChildren) => {
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <BoxBreathProvider>{children}</BoxBreathProvider>
+      </QueryClientProvider>
     </trpc.Provider>
   )
 }
