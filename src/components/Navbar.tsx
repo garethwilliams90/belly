@@ -13,6 +13,7 @@ import { buttonVariants } from "./ui/button"
 import Logo from "@/app/Logo.png"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import LanguageToggle from "./LanguageToggle"
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession()
@@ -33,6 +34,7 @@ const Navbar = () => {
 
           <div className="hidden items-center space-x-4 sm:flex">
             <ModeToggle />
+            <LanguageToggle />
             {!user ? (
               <>
                 {/* <Link
@@ -46,18 +48,18 @@ const Navbar = () => {
                 >
                   Login
                 </LoginLink>
-                <RegisterLink className={buttonVariants({ size: "sm" })}>
+                {/* <RegisterLink className={buttonVariants({ size: "sm" })}>
                   Get Started <ArrowRight />
-                </RegisterLink>
+                </RegisterLink> */}
               </>
             ) : (
               <>
-                <Link
+                {/* <Link
                   href="/exercises"
                   className={buttonVariants({ variant: "outline", size: "sm" })}
                 >
                   Start Breathing
-                </Link>
+                </Link> */}
                 <UserAccountNav
                   name={
                     !user.given_name || !user.family_name

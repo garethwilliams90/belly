@@ -38,7 +38,7 @@ export function constructMetadata({
       ],
     },
     icons,
-    metadataBase: new URL("https://sumrise-iota.vercel.app"),
+    metadataBase: new URL("https://belly-murex.vercel.app"),
     themeColor: "#FFF",
     ...(noIndex && {
       robots: {
