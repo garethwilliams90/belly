@@ -126,7 +126,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
       }
 
       messageControls.start({
-        scale: [1, 1.8, 1, 1.8, 1],
+        scale: [1, 2.2, 2.2, 1, 1],
         transition: {
           duration: boxLength,
           ease: "easeInOut",
@@ -182,7 +182,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
       x: "0%",
       y: "0%",
     })
-    messageControls.start({ scale: [1] })
+    messageControls.set({ scale: [1] })
     // Reset the message controls
     messageControls.stop()
     // Cancel the message changes

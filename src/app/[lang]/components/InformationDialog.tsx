@@ -7,13 +7,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/app/[lang]/components/ui/dialog"
-import ShareButton from "./nav/ShareButton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Square, Stethoscope } from "lucide-react"
+import ShareButton from "./nav/ShareButton"
 import { buttonVariants } from "./ui/button"
-import { Info, Square, Stethoscope } from "lucide-react"
-import { motion } from "framer-motion"
 
-const CompletionDialog = () => {
+const InformationDialog = () => {
   return (
     <div
       className={buttonVariants({
@@ -27,7 +26,7 @@ const CompletionDialog = () => {
 
         <DialogContent className="w-full flex items-center justify-center">
           <DialogHeader>
-            <DialogTitle className="text-2xl flex items-center justify-center gap-4">
+            <DialogTitle className="text-2xl flex items-center justify-center gap-4 ">
               Box Breathing <Square />
             </DialogTitle>
             <DialogDescription className="flex items-center justify-center flex-col">
@@ -118,4 +117,4 @@ const CompletionDialog = () => {
   )
 }
 
-export default CompletionDialog
+export default InformationDialog

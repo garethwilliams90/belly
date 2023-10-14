@@ -1,8 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { Rotate3D, RotateCcw, Star } from "lucide-react"
+import { Rotate3D } from "lucide-react"
 import { useBoxBreath } from "./boxBreathContext"
-import CompletionDialog from "./CompletionDialog"
-import { Button, buttonVariants } from "./ui/button"
 
 const BoxBreathContainer = () => {
   const {
@@ -48,6 +46,8 @@ const BoxBreathContainer = () => {
                     Preparing your exercise...
                   </h1>
                 </div>
+              ) : !isRunning ? (
+                <div className="animate-bounce">{boxMessage}</div>
               ) : (
                 boxMessage
               )}

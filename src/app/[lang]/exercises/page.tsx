@@ -5,7 +5,7 @@ import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
 import SettingsDialog from "@/app/[lang]/components/SettingsDialog"
 import { useBoxBreath } from "@/app/[lang]/components/boxBreathContext"
 import { Button, buttonVariants } from "@/app/[lang]/components/ui/button"
-import CompletionDialog from "../components/CompletionDialog"
+import InformationDialog from "../components/InformationDialog"
 
 const Exercises = () => {
   const { rounds, isRunning, cancelExercise, messageRef, isComplete } =
@@ -18,7 +18,7 @@ const Exercises = () => {
           <div className="text-muted-foreground font-semibold text-lg">
             Cycles: {rounds}
           </div>
-          {!isRunning && !isComplete ? <CompletionDialog /> : null}
+          {!isRunning && !isComplete ? <InformationDialog /> : null}
         </div>
 
         <BoxBreathContainer />
