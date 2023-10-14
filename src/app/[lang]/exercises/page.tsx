@@ -5,9 +5,12 @@ import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
 import SettingsDialog from "@/app/[lang]/components/SettingsDialog"
 import { useBoxBreath } from "@/app/[lang]/components/boxBreathContext"
 import { Button, buttonVariants } from "@/app/[lang]/components/ui/button"
+import CompletionDialog from "../components/CompletionDialog"
 
 const Exercises = () => {
-  const { rounds, isRunning, cancelExercise, messageRef } = useBoxBreath()
+  const { rounds, isRunning, cancelExercise, messageRef, isComplete } =
+    useBoxBreath()
+
   return (
     <MaxWidthWrapper className="justify-evenly items-center">
       <div className="flex flex-col w-full items-center justify-center gap-24 relative">
@@ -15,7 +18,9 @@ const Exercises = () => {
           <div className="text-muted-foreground font-semibold text-lg">
             Cycles: {rounds}
           </div>
+          {!isRunning && !isComplete ? <CompletionDialog /> : null}
         </div>
+
         <BoxBreathContainer />
         {isRunning ? (
           <Button

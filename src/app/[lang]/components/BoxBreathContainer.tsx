@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Rotate3D, RotateCcw, Star } from "lucide-react"
 import { useBoxBreath } from "./boxBreathContext"
 import CompletionDialog from "./CompletionDialog"
+import { Button, buttonVariants } from "./ui/button"
 
 const BoxBreathContainer = () => {
   const {
@@ -21,8 +22,6 @@ const BoxBreathContainer = () => {
   return (
     <>
       <AnimatePresence>
-        {/* {isComplete && <CompletionDialog key={"completionDialog"} />} */}
-
         <motion.div
           whileHover={!isRunning ? { scale: 1.05 } : {}}
           whileTap={!isRunning ? { scale: 0.95 } : {}}

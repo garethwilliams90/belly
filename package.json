@@ -50,7 +50,6 @@
     "eslint-config-next": "13.5.2",
     "framer-motion": "^10.16.4",
     "fs": "^0.0.1-security",
-    "howler": "^2.2.4",
     "langchain": "^0.0.153",
     "lucide-react": "^0.279.0",
     "negotiator": "^0.6.3",
