@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { Star } from "lucide-react"
+import { Rotate3D, RotateCcw, Star } from "lucide-react"
 import { useBoxBreath } from "./boxBreathContext"
+import CompletionDialog from "./CompletionDialog"
 
 const BoxBreathContainer = () => {
   const {
     rounds,
     breathLength,
-    exerciseTime,
     runExercise,
     completeExercise,
     cancelExercise,
@@ -14,12 +14,15 @@ const BoxBreathContainer = () => {
     messageControls,
     isRunning,
     loading,
+    isComplete,
     boxMessage,
   } = useBoxBreath()
 
   return (
     <>
       <AnimatePresence>
+        {/* {isComplete && <CompletionDialog key={"completionDialog"} />} */}
+
         <motion.div
           whileHover={!isRunning ? { scale: 1.05 } : {}}
           whileTap={!isRunning ? { scale: 0.95 } : {}}
@@ -33,13 +36,7 @@ const BoxBreathContainer = () => {
           <motion.div
             animate={controls}
             className="h-1/6 w-1/6 bg-blue-300 absolute top-0 flex left-0 rounded-3xl shadow-lg shadow-black/30 items-center justify-center"
-          >
-            {/* <RotateCcw
-              strokeWidth={2}
-              color="black"
-              className="w-3/4 h-full animate-spin-slow"
-            /> */}
-          </motion.div>
+          />
           <div className="flex flex-col items-center justify-center ">
             <motion.div
               animate={messageControls}
@@ -47,7 +44,7 @@ const BoxBreathContainer = () => {
             >
               {loading ? (
                 <div className="flex flex-col justify-center items-center gap-4">
-                  <Star className="animate-spin-slow w-10 h-10" />
+                  <Rotate3D className="animate-spin-slow w-10 h-10" />
                   <h1 className="font-medium text text-xs animate-bounce">
                     Preparing your exercise...
                   </h1>
@@ -56,9 +53,6 @@ const BoxBreathContainer = () => {
                 boxMessage
               )}
             </motion.div>
-            {/* {isRunning && (
-              <div className="text-muted font-medium">for {breathLength}</div>
-            )} */}
           </div>
         </motion.div>
       </AnimatePresence>

@@ -22,6 +22,8 @@ const BoxBreath = createContext<
       updateRounds: (e: number) => void
       runExercise: (rounds: number, boxLength: number) => void
       isRunning: boolean
+      isComplete: boolean
+      wasCancelled: boolean
       loading: boolean
       cancelExercise: (ref: React.MutableRefObject<boolean>) => void
       completeExercise: (wasCancelled: boolean) => void
@@ -49,6 +51,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
   const [boxMessage, setBoxMessage] = useState<string>("Press To Start")
   const [wasCancelled, setWasCancelled] = useState<boolean>(false)
   const [isRunning, setIsRunning] = useState<boolean>(false)
+  const [isComplete, setIsComplete] = useState<boolean>(false)
   const [breathLength, setBreathLength] = useState<number>(5)
   const [rounds, setRounds] = useState<number>(3)
   const [exerciseTime, setExerciseTime] = useState<number>(
@@ -144,11 +147,14 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
   }
 
   const runExercise = async (rounds: number, boxLength: number) => {
+    setIsComplete(false)
+    setWasCancelled(false)
     // Wait the breathLength time
     setLoading(true)
     await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))
     setLoading(false)
     setIsRunning(true)
+
     messageRef.current = false
 
     messageChanges(boxLength)
@@ -157,10 +163,7 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
     setIsRunning(false)
 
     // complete with cancelled data
-    completeExercise(wasCancelled)
-
-    setWasCancelled(false)
-    setBoxMessage("Press To Start")
+    completeExercise()
   }
 
   const cancelMessageChanges = () => {
@@ -180,23 +183,34 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
       x: "0%",
       y: "0%",
     })
-
     messageControls.start({ scale: [1] })
-
     // Reset the message controls
     messageControls.stop()
-
     // Cancel the message changes
     cancelMessageChanges()
 
-    // Set the message to "Press To Start"
-    setBoxMessage("Press To Start")
-
     setIsRunning(false)
+    setIsComplete(false)
     setWasCancelled(true)
+    completeExercise()
   }
 
-  const completeExercise = (wasCancelled: boolean) => {}
+  const completeExercise = () => {
+    if (wasCancelled === false) {
+      setIsComplete(false)
+    } else {
+      setIsComplete(true)
+    }
+    setBoxMessage("Press To Start")
+    return
+  }
+
+  useEffect(() => {
+    if (isComplete) {
+      // Re-render the component when the `isComplete` state changes.
+      setIsComplete(false)
+    }
+  }, [isComplete])
 
   // Provide the cart state and functions through boxBreath.Provider
   return (
@@ -212,6 +226,8 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
         updateRounds,
         runExercise,
         isRunning,
+        isComplete,
+        wasCancelled,
         loading,
         cancelExercise,
         completeExercise,

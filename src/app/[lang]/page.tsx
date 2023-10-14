@@ -1,12 +1,13 @@
 import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
 import { buttonVariants } from "@/app/[lang]/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Github, Linkedin, LinkedinIcon, Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import Logo from "./Logo.png"
 
 import { Locale } from "@/i18n.config"
 import { getDictionary } from "@/lib/dictionary"
+import { Separator } from "@/components/ui/separator"
 
 export default async function Home({
   params: { lang },
@@ -44,7 +45,29 @@ export default async function Home({
           {page.home.buttonText}{" "}
           <ArrowRight className="ml-2 h-5 w-5"></ArrowRight>
         </Link>
-        {/* </motion.div> */}
+
+        <div className="mt-20">
+          <Separator></Separator>
+          <div className="py-4">
+            <p>By Gareth Williams</p>
+
+            <div className="flex flex-row gap-4 py-4 items-center justify-center">
+              <Link
+                href={"https://github.com/garethwilliams90"}
+                target="_blank"
+              >
+                <Github />
+              </Link>
+              <Link
+                target="_blank"
+                href={"https://www.linkedin.com/in/gareth-williams-0396ab205/"}
+              >
+                <Linkedin />
+              </Link>
+            </div>
+            <p className="text-muted-foreground">wgareth90@gmail.com</p>
+          </div>
+        </div>
       </MaxWidthWrapper>
 
       {/* Value proposition section */}
