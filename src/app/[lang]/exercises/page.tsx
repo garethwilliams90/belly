@@ -18,7 +18,7 @@ const Exercises = () => {
           <div className="text-muted-foreground font-semibold text-lg">
             Cycles: {rounds}
           </div>
-          {!isRunning && !isComplete ? <InformationDialog /> : null}
+          {!isRunning && <InformationDialog />}
         </div>
 
         <BoxBreathContainer />
