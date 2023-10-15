@@ -4,6 +4,7 @@ import { cn, constructMetadata } from "@/lib/utils"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Locale, i18n } from "@/i18n.config"
+import { Analytics } from "@vercel/analytics/react"
 
 import { Toaster } from "@/app/[lang]/components/ui/toaster"
 import "react-loading-skeleton/dist/skeleton.css"
@@ -45,6 +46,7 @@ export default function RootLayout({
             <Toaster />
             <Navbar />
             {children}
+            <Analytics />
           </ThemeProvider>
         </body>
       </Providers>
