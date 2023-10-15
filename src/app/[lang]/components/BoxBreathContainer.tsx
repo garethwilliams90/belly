@@ -21,12 +21,12 @@ const BoxBreathContainer = () => {
     <>
       <AnimatePresence>
         <motion.div
-          whileHover={!isRunning ? { scale: 1.05 } : {}}
-          whileTap={!isRunning ? { scale: 0.95 } : {}}
+          whileHover={!isRunning || !loading ? { scale: 1.05 } : {}}
+          whileTap={!isRunning || !loading ? { scale: 0.95 } : {}}
           onClick={
-            !isRunning || loading
-              ? () => runExercise(rounds, breathLength * 4)
-              : () => {}
+            isRunning || loading
+              ? () => {}
+              : () => runExercise(rounds, breathLength * 4)
           }
           className=" bg-blue-600 rounded-3xl w-11/12 sm:w-2/3 md:w-1/2 aspect-square flex items-center justify-center shadow-lg shadow-primary/50 relative overflow-visible"
         >

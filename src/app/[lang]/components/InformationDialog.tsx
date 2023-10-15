@@ -77,8 +77,8 @@ const InformationDialog = () => {
                       your breath length as you continue box breathing.
                     </div>
                     <div>
-                      Slowly you gain more control of your breath and maybe your
-                      emotions too!
+                      Slowly you will gain more control of your breath and maybe
+                      your emotions too!
                     </div>
                   </div>
                 </TabsContent>
