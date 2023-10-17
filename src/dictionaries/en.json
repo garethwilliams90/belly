@@ -9,5 +9,27 @@
     "box": {
       "title": "Box Breathing"
     }
+  },
+  "info": {
+    "start": "Press To Start",
+    "in": "Inhale",
+    "out": "Exhale",
+    "hold": "Hold",
+    "cancel": "Cancel",
+    "settings": "settings",
+    "rounds": "Rounds",
+    "length": "Breath Length",
+    "exerciseTime:": "Exercise Duration",
+    "Box Breathing": "",
+    "Box breathing is a form of breath control where we follow the pattern: (Inhale, Hold, Exhale, Hold)": "",
+    "If you enjoy this app, please share belly with your friends and please complete more exercises!": "",
+    "Box breathing can help people cope with:": "",
+    "Stress": "",
+    "Focus": "",
+    "Worry": "",
+    "Sleep": "",
+    "Blood Pressure": "",
+    "Aim to slowly increase your breath length as you continue box breathing.": "",
+    "Slowly you will gain more control of your breath and maybe your emotions too!": ""
   }
 }

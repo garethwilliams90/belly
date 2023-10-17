@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Rotate3D } from "lucide-react"
 import { useBoxBreath } from "./boxBreathContext"
 
-const BoxBreathContainer = () => {
+const BoxBreathContainer = ({ lang }: { lang: string }) => {
   const {
     rounds,
     breathLength,
@@ -43,7 +43,11 @@ const BoxBreathContainer = () => {
                 <div className="flex flex-col justify-center items-center gap-4">
                   <Rotate3D className="animate-spin-slow w-10 h-10" />
                   <h1 className="font-medium text text-xs animate-bounce">
-                    Preparing your exercise...
+                    {lang === "he" ? (
+                      <>אנחנו מכינים את התרגיל שלך</>
+                    ) : (
+                      <>Preparing your exercise...</>
+                    )}
                   </h1>
                 </div>
               ) : !isRunning ? (

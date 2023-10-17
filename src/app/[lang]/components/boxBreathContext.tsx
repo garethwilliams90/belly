@@ -42,12 +42,14 @@ export const useBoxBreath = () => {
 
 // Define your BoxBreathProvider component
 // @ts-ignore
-export const BoxBreathProvider: React.FC = ({ children }) => {
+export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   const controls = useAnimation()
 
   const messageControls = useAnimation()
   const [loading, setLoading] = useState<boolean>(false)
-  const [boxMessage, setBoxMessage] = useState<string>("Press To Start")
+  const [boxMessage, setBoxMessage] = useState<string>(
+    lang === "he" ? "לחצו כדי להתחיל" : "Press To Start"
+  )
   const [wasCancelled, setWasCancelled] = useState<boolean>(false)
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [isComplete, setIsComplete] = useState<boolean>(false)
@@ -201,7 +203,10 @@ export const BoxBreathProvider: React.FC = ({ children }) => {
       console.log("no")
       setIsComplete((prev) => true)
     }
-    setBoxMessage("Press To Start")
+
+    lang === "he"
+      ? setBoxMessage("לחצו כדי להתחיל")
+      : setBoxMessage("Press To Start")
   }
 
   // Provide the cart state and functions through boxBreath.Provider

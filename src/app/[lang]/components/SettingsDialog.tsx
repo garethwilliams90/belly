@@ -14,7 +14,7 @@ import { buttonVariants } from "./ui/button"
 import { Slider } from "./ui/slider"
 import { useBoxBreath } from "./boxBreathContext"
 
-const SettingsDialog = () => {
+const SettingsDialog = ({ lang }) => {
   const [open, setOpen] = useState<boolean>(false)
 
   const {
@@ -43,7 +43,7 @@ const SettingsDialog = () => {
         onClick={handleClick}
       >
         <Settings className="mr-2 h-5 w-5" />
-        Settings
+        {lang === "he" ? <>הגדרות</> : <>Settings</>}
       </p>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandList className="">
@@ -52,7 +52,7 @@ const SettingsDialog = () => {
               <div className="flex items-start">
                 <Wind className="mr-2 h-4 w-4" />
                 <span>
-                  Breath Length:{" "}
+                  {lang === "he" ? <>אורך שאיפה</> : <>Breath Length: </>}{" "}
                   <span className="text-primary font-semibold">
                     {breathLength} sec
                   </span>
@@ -72,7 +72,7 @@ const SettingsDialog = () => {
               <div className="flex ">
                 <RefreshCcw className="mr-2 h-4 w-4" />
                 <span>
-                  Rounds:{" "}
+                  {lang === "he" ? <>סיבובים</> : <>Rounds: </>}{" "}
                   <span className="text-primary font-semibold">{rounds}</span>
                 </span>
               </div>
@@ -91,7 +91,7 @@ const SettingsDialog = () => {
             <CommandItem>
               <Hourglass className="mr-2 h-4 w-4" />
               <span>
-                Exercise Time:{" "}
+                {lang === "he" ? <>אורך תרגיל</> : <>Exercise Time:</>}{" "}
                 <span className="text-primary font-semibold">
                   {Math.round(exerciseTime)} min
                 </span>

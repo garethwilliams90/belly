@@ -10,5 +10,26 @@
       "title": "Summa "
     }
   },
-  "info": {}
+  "info": {
+    "start": "לחצו כדי להתחיל",
+    "in": "פנימה ",
+    "out": "החוצה",
+    "hold": "להחזיק",
+    "cancel": "ביטול",
+    "settings": "הגדרות",
+    "rounds": "סיבובים",
+    "length": "אורך שאיפה",
+    "exerciseTime:": "אורך תרגיל",
+    "Box Breathing": "",
+    "Box breathing is a form of breath control where we follow the pattern: (Inhale, Hold, Exhale, Hold)": "",
+    "If you enjoy this app, please share belly with your friends and please complete more exercises!": "",
+    "Box breathing can help people cope with:": "",
+    "Stress": "",
+    "Focus": "",
+    "Worry": "",
+    "Sleep": "",
+    "Blood Pressure": "",
+    "Aim to slowly increase your breath length as you continue box breathing.": "",
+    "Slowly you will gain more control of your breath and maybe your emotions too!": ""
+  }
 }

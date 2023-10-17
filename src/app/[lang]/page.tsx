@@ -1,13 +1,13 @@
 import MaxWidthWrapper from "@/app/[lang]/components/MaxWidthWrapper"
 import { buttonVariants } from "@/app/[lang]/components/ui/button"
-import { ArrowRight, Github, Linkedin, LinkedinIcon, Mail } from "lucide-react"
+import { ArrowRight, Github, Linkedin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import Logo from "./Logo.png"
 
+import { Separator } from "@/components/ui/separator"
 import { Locale } from "@/i18n.config"
 import { getDictionary } from "@/lib/dictionary"
-import { Separator } from "@/components/ui/separator"
 
 export default async function Home({
   params: { lang },
@@ -49,7 +49,7 @@ export default async function Home({
         <div className="mt-20">
           <Separator></Separator>
           <div className="py-4">
-            <p>By Gareth Williams</p>
+            <div>By Gareth Williams</div>
 
             <div className="flex flex-row gap-4 py-4 items-center justify-center">
               <Link
