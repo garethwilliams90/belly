@@ -12,7 +12,7 @@ import { Square, Stethoscope } from "lucide-react"
 import ShareButton from "./nav/ShareButton"
 import { buttonVariants } from "./ui/button"
 
-const InformationDialog = () => {
+const InformationDialog = ({ lang }: { lang: string }) => {
   return (
     <div
       className={buttonVariants({
@@ -27,7 +27,8 @@ const InformationDialog = () => {
         <DialogContent className="w-full flex items-center justify-center">
           <DialogHeader>
             <DialogTitle className="text-2xl flex items-center justify-center gap-4 ">
-              Box Breathing <Square />
+              {lang == "he" ? <>נשימה מרובעת</> : <>Box Breathing</>}
+              <Square />
             </DialogTitle>
             <DialogDescription className="flex items-center justify-center flex-col">
               <Tabs
@@ -36,8 +37,19 @@ const InformationDialog = () => {
               >
                 <TabsContent value="1">
                   <div className="text-lg text-muted-foreground text-center">
-                    Box breathing is a form of breath control where we follow
-                    the pattern:{" "}
+                    {lang === "he" ? (
+                      <>
+                        {" "}
+                        נשימה מרובעת היא טכניקת נשימה מודעת לפי סדר קבוע שחוזר
+                        על עצמו - שאיפה, החזקת האוויר בפנים לכמה שניות, נשיפה,
+                        החזקת האוויר - ושוב מההתחלה
+                      </>
+                    ) : (
+                      <>
+                        Box breathing is a form of breath control where we
+                        follow the pattern:
+                      </>
+                    )}{" "}
                     <h2 className="text-primary font-semibold mt-2">
                       (Inhale, Hold, Exhale, Hold)
                     </h2>
@@ -45,41 +57,55 @@ const InformationDialog = () => {
                 </TabsContent>
                 <TabsContent value="2">
                   <div className="text-lg text-muted-foreground">
-                    Box breathing can help people cope with:
+                    {lang === "he" ? (
+                      <>:טכניקת הנשימה המרובעת יכולה לעזור בהתמודדות עם</>
+                    ) : (
+                      <>Box breathing can help people cope with:</>
+                    )}
                     <div className="grid grid-cols-3 py-2 gap-2 items-center justify-center text-primary-foreground font-semibold ">
                       <div className="bg-primary rounded-full px-2 items-center justify-center flex shadow-sm shadow-black/40">
-                        Stress
+                        {lang === "he" ? <>לחץ</> : <>Stress</>}
                       </div>
                       <div className="bg-orange-300 text-black rounded-full px-2 items-center justify-center flex shadow-sm shadow-black/40">
-                        Focus
+                        {lang === "he" ? <>דאגות</> : <>Focus</>}
                       </div>
                       <div className="bg-blue-500 rounded-full px-2 items-center justify-center flex shadow-sm shadow-black/40">
-                        Worry
+                        {lang === "he" ? <>קשיי ריכוז</> : <>Worry</>}
                       </div>
                     </div>
                     <div className="grid grid-flow-col font-semibold text-black  gap-2 ">
                       <div className="bg-green-400 rounded-full px-2 items-center justify-center flex shadow-sm shadow-black/40">
-                        Sleep
+                        {lang === "he" ? <>שינה</> : <>Sleep</>}
                       </div>
                       <div className="bg-primary rounded-full px-2 line-clamp-1 bg-red-400  items-center justify-center flex shadow-sm shadow-black/40">
-                        Blood Pressure
+                        {lang === "he" ? <>לחץ דם"</> : <>Blood Pressure</>}
                       </div>
                     </div>
                   </div>
                 </TabsContent>
                 <TabsContent value="3">
                   <div className="text-xl text-muted-foreground flex flex-col gap-4 items-center justify-center text-center">
-                    <div>
-                      Aim to{" "}
-                      <span className="text-primary font-semibold">
-                        slowly increase
-                      </span>{" "}
-                      your breath length as you continue box breathing.
-                    </div>
-                    <div>
-                      Slowly you will gain more control of your breath and maybe
-                      your emotions too!
-                    </div>
+                    {lang === "he" ? (
+                      <>
+                        נסו בהדרגה להעלות את אורך השאיפה/נשיפה. עם הזמן תרגישו
+                        יותר בשליטה על הנשימה שלכם, ובתקווה שגם על התחושות
+                        שמציפות אתכם ברגעי מתח
+                      </>
+                    ) : (
+                      <>
+                        <div>
+                          Aim to{" "}
+                          <span className="text-primary font-semibold">
+                            slowly increase
+                          </span>{" "}
+                          your breath length as you continue box breathing.
+                        </div>
+                        <div>
+                          Slowly you will gain more control of your breath and
+                          maybe your emotions too!
+                        </div>
+                      </>
+                    )}
                   </div>
                 </TabsContent>
 
@@ -95,13 +121,21 @@ const InformationDialog = () => {
                 <DialogFooter>
                   <DialogDescription key={3}>
                     <div className="flex flex-row gap-4">
-                      <div>
-                        If you enjoy this app, please share{" "}
-                        <span className="text-primary font-semibold">
-                          belly
-                        </span>{" "}
-                        with your friends and please complete more exercises!
-                      </div>
+                      {lang === "he" ? (
+                        <>
+                          .אם אהבתם את האפליקציה, מעולה! המשיכו לתרגל ושתפו עם
+                          חבריכם
+                        </>
+                      ) : (
+                        <div>
+                          If you enjoy this app, please share{" "}
+                          <span className="text-primary font-semibold">
+                            belly
+                          </span>{" "}
+                          with your friends and please complete more exercises!
+                        </div>
+                      )}
+
                       <div className="">
                         <ShareButton />
                       </div>
