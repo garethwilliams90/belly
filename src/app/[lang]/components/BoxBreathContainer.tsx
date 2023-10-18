@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { Rotate3D } from "lucide-react"
 import { useBoxBreath } from "./boxBreathContext"
+import { useToast } from "./ui/use-toast"
 
 const BoxBreathContainer = ({ lang }: { lang: string }) => {
   const {
@@ -16,6 +17,8 @@ const BoxBreathContainer = ({ lang }: { lang: string }) => {
     isComplete,
     boxMessage,
   } = useBoxBreath()
+
+  const { toast } = useToast()
 
   return (
     <>

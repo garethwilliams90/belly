@@ -8,6 +8,10 @@ import React, {
   useRef,
   useState,
 } from "react"
+import { useToast } from "./ui/use-toast"
+import { ToastAction } from "./ui/toast"
+import { ToastClose, ToastTitle } from "@radix-ui/react-toast"
+import { Sprout } from "lucide-react"
 
 // Define BoxBreath
 const BoxBreath = createContext<
@@ -44,6 +48,7 @@ export const useBoxBreath = () => {
 // @ts-ignore
 export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   const controls = useAnimation()
+  const { toast } = useToast()
 
   const messageControls = useAnimation()
   const [loading, setLoading] = useState<boolean>(false)
@@ -150,6 +155,7 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   const runExercise = async (rounds: number, boxLength: number) => {
     setIsComplete((prev) => false)
     setWasCancelled((prev) => false)
+
     // Wait the breathLength time
     setLoading(true)
     await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))
@@ -195,12 +201,32 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
     setWasCancelled((prev) => true)
   }
 
+  const completionToast = () => {
+    return toast({
+      duration: 5000,
+
+      title: (
+        <div className="flex justify-between mb-2 w-full text-lg">
+          <ToastTitle className="text-primary font-semibold">
+            Exercise Complete
+          </ToastTitle>
+          <Sprout />
+        </div>
+      ),
+      description: `You completed ${rounds} rounds this time. Keep up the good work.`,
+      action: (
+        <ToastClose className="border rounded-lg px-4 py-2 ">Close</ToastClose>
+      ),
+    })
+  }
+
   const completeExercise = () => {
     if (!wasCancelled) {
       console.log("yes")
       setIsComplete((prev) => false)
     } else {
       console.log("no")
+      completionToast()
       setIsComplete((prev) => true)
     }
 
