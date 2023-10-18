@@ -14,7 +14,7 @@ import { buttonVariants } from "./ui/button"
 import { Slider } from "./ui/slider"
 import { useBoxBreath } from "./boxBreathContext"
 
-const SettingsDialog = ({ lang }) => {
+const SettingsDialog = ({ lang }: { lang: string }) => {
   const [open, setOpen] = useState<boolean>(false)
 
   const {
