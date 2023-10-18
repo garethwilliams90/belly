@@ -78,7 +78,7 @@ const InformationDialog = ({ lang }: { lang: string }) => {
                         {lang === "he" ? <>שינה</> : <>Sleep</>}
                       </div>
                       <div className="bg-primary rounded-full px-2 line-clamp-1 bg-red-400  items-center justify-center flex shadow-sm shadow-black/40">
-                        {lang === "he" ? <>לחץ דם"</> : <>Blood Pressure</>}
+                        {lang === "he" ? <>לחץ דם</> : <>Blood Pressure</>}
                       </div>
                     </div>
                   </div>
