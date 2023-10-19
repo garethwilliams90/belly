@@ -31,12 +31,13 @@ const BoxBreathContainer = ({ lang }: { lang: string }) => {
               ? () => {}
               : () => runExercise(rounds, breathLength * 4)
           }
-          className=" bg-primary rounded-3xl w-11/12 sm:w-2/3 md:w-1/2 aspect-square flex items-center justify-center shadow-lg shadow-primary/50 relative overflow-visible"
+          className=" bg-indigo-600 rounded-3xl w-11/12 sm:w-2/3 md:w-1/2 aspect-square flex items-center justify-center shadow-lg shadow-primary/50 relative overflow-hidden"
         >
           <motion.div
             animate={controls}
-            className="h-1/6 w-1/6 bg-violet-500 absolute top-0 flex left-0 rounded-3xl shadow-lg shadow-black/30 items-center justify-center"
+            className="h-1/6 w-1/6 bg-indigo-500 absolute top-0 flex left-0 rounded-3xl shadow-lg shadow-black/30 items-center justify-center"
           />
+
           <div className="flex flex-col items-center justify-center ">
             <motion.div
               animate={messageControls}
@@ -54,7 +55,7 @@ const BoxBreathContainer = ({ lang }: { lang: string }) => {
                   </h1>
                 </div>
               ) : !isRunning ? (
-                <div className="animate-bounce">{boxMessage}</div>
+                <div className="animate-pulse">{boxMessage}</div>
               ) : (
                 boxMessage
               )}

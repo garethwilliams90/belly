@@ -5,6 +5,7 @@ import { Hourglass, RefreshCcw, Settings, Wind } from "lucide-react"
 import {
   CommandDialog,
   CommandGroup,
+  CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
@@ -46,34 +47,35 @@ const SettingsDialog = ({ lang }: { lang: string }) => {
         {lang === "he" ? <>הגדרות</> : <>Settings</>}
       </p>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandList className="">
-          <CommandGroup heading="Settings">
-            <CommandItem className="flex flex-col gap-8">
-              <div className="flex items-start">
+        <CommandGroup className="font-semibold flex flex-col h-full justify-center ">
+          <div className="flex flex-col gap-4 mt-4">
+            <CommandItem className="flex flex-col gap-8 text-2xl ">
+              <div className="flex justify-center items-center">
                 <Wind className="mr-2 h-4 w-4" />
                 <span>
                   {lang === "he" ? <>אורך שאיפה</> : <>Breath Length: </>}{" "}
-                  <span className="text-primary font-semibold">
-                    {breathLength} sec
+                  <span className="text-primary font-bold">
+                    {breathLength} s
                   </span>
                 </span>
               </div>
               <Slider
                 defaultValue={[breathLength]}
                 max={10}
-                min={3}
+                min={4}
                 step={0.5}
                 onValueChange={(e) => {
                   updateBreathLength(e[0])
                 }}
+                className="h-10  bg-background rounded-md px-2"
               />
             </CommandItem>
-            <CommandItem className="flex flex-col gap-8">
-              <div className="flex ">
+            <CommandItem className="flex flex-col gap-8 text-2xl ">
+              <div className="flex justify-center items-center">
                 <RefreshCcw className="mr-2 h-4 w-4" />
                 <span>
                   {lang === "he" ? <>סיבובים</> : <>Rounds: </>}{" "}
-                  <span className="text-primary font-semibold">{rounds}</span>
+                  <span className="text-primary font-bold">{rounds}</span>
                 </span>
               </div>
               <Slider
@@ -84,11 +86,12 @@ const SettingsDialog = ({ lang }: { lang: string }) => {
                 onValueChange={(e) => {
                   updateRounds(e[0])
                 }}
+                className="h-10  bg-background rounded-md px-2"
               />
             </CommandItem>
 
             <CommandSeparator />
-            <CommandItem>
+            <CommandItem className="text-2xl flex items-center justify-center">
               <Hourglass className="mr-2 h-4 w-4" />
               <span>
                 {lang === "he" ? <>אורך תרגיל</> : <>Exercise Time:</>}{" "}
@@ -97,8 +100,8 @@ const SettingsDialog = ({ lang }: { lang: string }) => {
                 </span>
               </span>
             </CommandItem>
-          </CommandGroup>
-        </CommandList>
+          </div>
+        </CommandGroup>
       </CommandDialog>
     </>
   )

@@ -11,8 +11,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Square, Stethoscope } from "lucide-react"
 import ShareButton from "./nav/ShareButton"
 import { buttonVariants } from "./ui/button"
+import { getDictionary } from "@/lib/dictionary"
+import { Locale } from "@/i18n.config"
 
-const InformationDialog = ({ lang }: { lang: string }) => {
+const InfoDialog = async ({
+  params: { lang },
+}: {
+  params: { lang: Locale }
+}) => {
+  const { page, info } = await getDictionary(lang)
+
   return (
     <div
       className={buttonVariants({
@@ -27,7 +35,7 @@ const InformationDialog = ({ lang }: { lang: string }) => {
         <DialogContent className="w-full flex items-center justify-center">
           <DialogHeader>
             <DialogTitle className="text-2xl flex items-center justify-center gap-4 ">
-              {lang == "he" ? <>נשימה מרובעת</> : <>Box Breathing</>}
+              {page.box.title}
               <Square />
             </DialogTitle>
             <DialogDescription className="flex items-center justify-center flex-col">
@@ -151,4 +159,4 @@ const InformationDialog = ({ lang }: { lang: string }) => {
   )
 }
 
-export default InformationDialog
+export default InfoDialog

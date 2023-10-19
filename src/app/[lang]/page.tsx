@@ -8,6 +8,7 @@ import Logo from "./Logo.png"
 import { Separator } from "@/components/ui/separator"
 import { Locale } from "@/i18n.config"
 import { getDictionary } from "@/lib/dictionary"
+import InfoDialog from "./components/InfoDialog"
 
 export default async function Home({
   params: { lang },

@@ -9,7 +9,6 @@ import React, {
   useState,
 } from "react"
 import { useToast } from "./ui/use-toast"
-import { ToastAction } from "./ui/toast"
 import { ToastClose, ToastTitle } from "@radix-ui/react-toast"
 import { Sprout } from "lucide-react"
 
@@ -22,6 +21,7 @@ const BoxBreath = createContext<
       exerciseTime: number
       controls: AnimationControls
       messageControls: AnimationControls
+      progressControls: AnimationControls
       updateBreathLength: (e: number) => void
       updateRounds: (e: number) => void
       runExercise: (rounds: number, boxLength: number) => void
@@ -51,6 +51,7 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   const { toast } = useToast()
 
   const messageControls = useAnimation()
+  const progressControls = useAnimation()
   const [loading, setLoading] = useState<boolean>(false)
   const [boxMessage, setBoxMessage] = useState<string>(
     lang === "he" ? "לחצו כדי להתחיל" : "Press To Start"
@@ -153,14 +154,22 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   }
 
   const runExercise = async (rounds: number, boxLength: number) => {
-    setIsComplete((prev) => false)
-    setWasCancelled((prev) => false)
-
+    setIsComplete(false)
+    setWasCancelled(false)
     // Wait the breathLength time
     setLoading(true)
+
     await new Promise((resolve) => setTimeout(resolve, breathLength * 1000))
     setLoading(false)
     setIsRunning(true)
+
+    progressControls.start({
+      scaleX: [0, 12],
+      transition: {
+        duration: rounds * boxLength,
+        ease: "linear",
+      },
+    })
 
     messageRef.current = false
 
@@ -197,13 +206,13 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
     cancelMessageChanges()
 
     setIsRunning(false)
-    setIsComplete((prev) => false)
-    setWasCancelled((prev) => true)
+    setIsComplete(false)
+    setWasCancelled(true)
   }
 
   const completionToast = () => {
     return toast({
-      duration: 5000,
+      duration: 7000,
       // @ts-ignore
       title: (
         <div className="flex justify-between mb-2 w-full text-lg">
@@ -222,19 +231,20 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
 
   const completeExercise = () => {
     if (!wasCancelled) {
-      console.log("yes")
-      setIsComplete((prev) => false)
-    } else {
-      console.log("no")
-      completionToast()
+      console.log("complete")
       setIsComplete((prev) => true)
+      completionToast()
+    } else {
+      console.log("cancelled")
+
+      setIsComplete((prev) => false)
     }
+
+    progressControls.set({ scale: [0] })
 
     lang === "he"
       ? setBoxMessage("לחצו כדי להתחיל")
       : setBoxMessage("Press To Start")
-
-    setWasCancelled(false)
   }
 
   // Provide the cart state and functions through boxBreath.Provider
@@ -247,6 +257,7 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
         exerciseTime,
         controls,
         messageControls,
+        progressControls,
         updateBreathLength,
         updateRounds,
         runExercise,
