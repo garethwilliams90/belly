@@ -204,7 +204,7 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
   const completionToast = () => {
     return toast({
       duration: 5000,
-
+      // @ts-ignore
       title: (
         <div className="flex justify-between mb-2 w-full text-lg">
           <ToastTitle className="text-primary font-semibold">
