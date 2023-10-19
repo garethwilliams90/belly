@@ -233,6 +233,8 @@ export const BoxBreathProvider: React.FC = ({ children, lang }) => {
     lang === "he"
       ? setBoxMessage("לחצו כדי להתחיל")
       : setBoxMessage("Press To Start")
+
+    setWasCancelled(false)
   }
 
   // Provide the cart state and functions through boxBreath.Provider
